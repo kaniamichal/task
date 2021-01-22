@@ -11,12 +11,10 @@ public class Point {
 
     private static String COMMA_DELIMITER = ";";
 
-
-    public Point(float x, float y){
+    public Point(float x, float y) {
         this.x = x;
         this.y = y;
     }
-
 
     public float getX() {
         return x;
@@ -26,7 +24,7 @@ public class Point {
         return y;
     }
 
-    public static List<List<String>> getPoint(File filLineName) {
+    public static List<List<String>> getPoints(File filLineName) {
         List<List<String>> recordsPoints = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(filLineName))) {
             String points;
@@ -39,15 +37,14 @@ public class Point {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-//        for (int i=0; i< records.size(); i++) {
-//            System.out.println(records.get(i));
-//        }
         return recordsPoints;
     }
 
-
-
-
-
+    @Override
+    public String toString() {
+        return "Point{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
 }

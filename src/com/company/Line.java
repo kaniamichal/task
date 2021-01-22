@@ -8,26 +8,21 @@ import java.util.List;
 public class Line {
 
     private static final String COMMA_DELIMITER = ";";
-    public Point[] points;
+    public List<Point> points;
     public final boolean someFlag;
 
-    public Line(Point[] points, boolean someFlag) {
+    public Line(List<Point> points, boolean someFlag) {
         this.points = points;
         this.someFlag = someFlag;
     }
 
-    public void setPoints(Point[] points) {
-        this.points = points;
-    }
-
-    public Point[] getPoints() {
+    public List<Point> getPoints() {
         return points;
     }
 
     public boolean isSomeFlag() {
         return someFlag;
     }
-
 
     public static List<List<String>> getLine(File filLineName) {
         List<List<String>> records = new ArrayList<>();
@@ -42,14 +37,13 @@ public class Line {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return records;
     }
 
     @Override
     public String toString() {
         return "Line{" +
-                "points=" + Arrays.toString(points) +
+                "points=" + points +
                 ", someFlag=" + someFlag +
                 '}';
     }
